@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术支持</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .support-content {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-section {
+            margin-bottom: 40px;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .email-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .email-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .faq-section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background: #f8f9fa;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+        
+        .faq-answer {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .support-form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .support-content {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>技术支持</h1>
+            <p class="subtitle">为您提供专业的应用技术支持</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="support-content">
+            <div class="contact-section">
+                <h2>联系我们</h2>
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>电子邮件</h3>
+                    <p>发送您的问题或反馈到：</p>
+                    <a href="mailto:sjking@163.com" class="email-link">14260807@qq.com</a>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h2>常见问题</h2>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>如何更新应用到最新版本？</span>
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>您可以通过App Store更新应用。打开应用商店，搜索此应用，然后点击"更新"按钮即可。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>应用崩溃怎么办？</span>
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>请尝试以下步骤：
+                        1. 关闭应用并重新打开
+                        2. 检查应用是否有更新
+                        3. 重启您的设备
+                        4. 如果问题仍然存在，请通过电子邮件联系我们。</p>
+                    </div>
+                </div>
+                
+            
+            <div class="support-form">
+                <h2>提交支持请求</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">您的姓名</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">您的电子邮件</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">问题主题</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">问题描述</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">提交请求</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Yese. 保留所有权利.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // FAQ 展开/折叠功能
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('span:last-child');
+                
+                answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+                icon.textContent = answer.style.display === 'none' ? '▼' : '▲';
+            });
+        });
+        
+        // 初始化FAQ答案为隐藏
+        document.querySelectorAll('.faq-answer').forEach(answer => {
+            answer.style.display = 'none';
+        });
+        
+        // 表单提交处理
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('感谢您的反馈！我们会尽快回复您。');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
