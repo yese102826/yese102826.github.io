@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Shopify Product CSV Generator Online (2026)</title>
+  <meta name="description" content="Generate product CSV files for Shopify. Free tool for ecommerce sellers. No registration required.">
+  <meta name="keywords" content="Shopify CSV, product CSV, ecommerce tool, shopify tool">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-container">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <span class="nav-link">Dev Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../dev/json-to-typescript.html">JSON to TypeScript</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-dart.html">JSON to Dart</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-python.html">JSON to Python</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-go.html">JSON to Go</a></li>
+            <li class="dropdown-item"><a href="../dev/url-encode.html">URL Encode</a></li>
+            <li class="dropdown-item"><a href="../dev/timestamp-converter.html">Timestamp Converter</a></li>
+            <li class="dropdown-item"><a href="../dev/hex-to-rgb.html">Hex to RGB</a></li>
+            <li class="dropdown-item"><a href="../dev/regex-tester.html">Regex Tester</a></li>
+            <li class="dropdown-item"><a href="../dev/markdown-table.html">Markdown Table</a></li>
+            <li class="dropdown-item"><a href="../dev/csv-to-json.html">CSV to JSON</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Design Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../design/youtube-thumbnail.html">YouTube Thumbnail</a></li>
+            <li class="dropdown-item"><a href="../design/tiktok-caption.html">TikTok Caption</a></li>
+            <li class="dropdown-item"><a href="../design/instagram-hashtag.html">Instagram Hashtag</a></li>
+            <li class="dropdown-item"><a href="../design/discord-emoji.html">Discord Emoji</a></li>
+            <li class="dropdown-item"><a href="../design/twitch-banner.html">Twitch Banner</a></li>
+            <li class="dropdown-item"><a href="../design/notion-template.html">Notion Template</a></li>
+            <li class="dropdown-item"><a href="../design/canva-color.html">Canva Color Extract</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Ecommerce Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../ecommerce/amazon-asin.html">Amazon ASIN</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/shopify-csv.html">Shopify CSV</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/ebay-title.html">Ebay Title</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/invoice-generator.html">Invoice Generator</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/weight-loss.html">Weight Loss Calculator</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container">
+    <div class="tool-page">
+      <div class="tool-header">
+        <h1>Shopify Product CSV Generator</h1>
+        <p>Create product CSV files for Shopify import. Format your products correctly.</p>
+      </div>
+
+      <div class="tool-content">
+        <div id="productsContainer"></div>
+        <button class="btn btn-secondary" onclick="addProduct()" style="margin: 20px 0;">+ Add Product</button>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="generateCSV()">Generate CSV</button>
+          <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="output-area">
+          <label for="csvOutput">CSV Output:</label>
+          <div class="output-wrapper">
+            <textarea id="csvOutput" class="output-box" readonly></textarea>
+            <button class="copy-btn" onclick="copyOutput()">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <h3>You May Also Like</h3>
+        <ul>
+          <li><a href="amazon-asin.html">Amazon ASIN Tool</a></li>
+          <li><a href="ebay-title.html">Ebay Title Optimizer</a></li>
+          <li><a href="invoice-generator.html">Invoice Generator</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Free Online Tools.</p>
+    <p style="margin-top: 10px;">
+      <a href="../../privacy.html" style="color: var(--text-secondary); margin: 0 10px;">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    let productCount = 0;
+
+    function addProduct() {
+      productCount++;
+      const container = document.getElementById('productsContainer');
+      const div = document.createElement('div');
+      div.className = 'input-group';
+      div.style.background = 'var(--bg-color)';
+      div.style.padding = '16px';
+      div.style.borderRadius = '8px';
+      div.style.marginBottom = '16px';
+      div.innerHTML = `
+        <h4>Product ${productCount}</h4>
+        <input type="text" class="prod-title" placeholder="Product Title" style="margin: 8px 0; width: 100%; padding: 8px;">
+        <input type="text" class="prod-desc" placeholder="Description" style="margin: 8px 0; width: 100%; padding: 8px;">
+        <input type="number" class="prod-price" placeholder="Price" step="0.01" style="margin: 8px 0; width: 100%; padding: 8px;">
+        <input type="text" class="prod-sku" placeholder="SKU" style="margin: 8px 0; width: 100%; padding: 8px;">
+        <input type="number" class="prod-qty" placeholder="Quantity" value="100" style="margin: 8px 0; width: 100%; padding: 8px;">
+        <button class="btn btn-secondary" onclick="this.parentElement.remove()" style="margin-top: 8px;">Remove</button>
+      `;
+      container.appendChild(div);
+    }
+
+    function generateCSV() {
+      const headers = 'Handle,Title,Body (HTML),Vendor,Type,Tags,Published,Option1 Name,Option1 Value,Variant SKU,Variant Grams,Variant Inventory Tracker,Variant Inventory Qty,Variant Price\n';
+      let rows = '';
+
+      document.querySelectorAll('#productsContainer .input-group').forEach(item => {
+        const title = item.querySelector('.prod-title').value || '';
+        const desc = item.querySelector('.prod-desc').value || '';
+        const price = item.querySelector('.prod-price').value || '0.00';
+        const sku = item.querySelector('.prod-sku').value || '';
+        const qty = item.querySelector('.prod-qty').value || '0';
+        
+        if (title) {
+          const handle = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+          rows += `${handle},"${title}","${desc}",YourStore,ProductTag,TRUE,Title,Default Title,${sku},0,shopify,${qty},${price}\n`;
+        }
+      });
+
+      document.getElementById('csvOutput').value = headers + rows;
+      showNotification('CSV generated!');
+    }
+
+    function clearAll() {
+      document.getElementById('productsContainer').innerHTML = '';
+      document.getElementById('csvOutput').value = '';
+      productCount = 0;
+    }
+
+    function copyOutput() {
+      const output = document.getElementById('csvOutput');
+      output.select();
+      document.execCommand('copy');
+      showNotification('Copied to clipboard!');
+    }
+
+    addProduct();
+  </script>
+</body>
+</html>

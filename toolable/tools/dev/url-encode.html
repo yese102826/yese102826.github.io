@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free URL Encode/Decode Online - API Tool (2026)</title>
+  <meta name="description" content="Free online URL encode and decode tool. Encode URLs for API requests instantly. No registration, fast and easy to use.">
+  <meta name="keywords" content="URL encode, URL decode, API tool, free encoder">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <span class="nav-link">Dev Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="json-to-typescript.html">JSON to TypeScript</a></li>
+            <li class="dropdown-item"><a href="json-to-dart.html">JSON to Dart</a></li>
+            <li class="dropdown-item"><a href="json-to-python.html">JSON to Python</a></li>
+            <li class="dropdown-item"><a href="json-to-go.html">JSON to Go</a></li>
+            <li class="dropdown-item"><a href="url-encode.html">URL Encode</a></li>
+            <li class="dropdown-item"><a href="timestamp-converter.html">Timestamp Converter</a></li>
+            <li class="dropdown-item"><a href="hex-to-rgb.html">Hex to RGB</a></li>
+            <li class="dropdown-item"><a href="regex-tester.html">Regex Tester</a></li>
+            <li class="dropdown-item"><a href="markdown-table.html">Markdown Table</a></li>
+            <li class="dropdown-item"><a href="csv-to-json.html">CSV to JSON</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Design Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../design/youtube-thumbnail.html">YouTube Thumbnail</a></li>
+            <li class="dropdown-item"><a href="../design/tiktok-caption.html">TikTok Caption</a></li>
+            <li class="dropdown-item"><a href="../design/instagram-hashtag.html">Instagram Hashtag</a></li>
+            <li class="dropdown-item"><a href="../design/discord-emoji.html">Discord Emoji</a></li>
+            <li class="dropdown-item"><a href="../design/twitch-banner.html">Twitch Banner</a></li>
+            <li class="dropdown-item"><a href="../design/notion-template.html">Notion Template</a></li>
+            <li class="dropdown-item"><a href="../design/canva-color.html">Canva Color Extract</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Ecommerce Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../ecommerce/amazon-asin.html">Amazon ASIN</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/shopify-csv.html">Shopify CSV</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/ebay-title.html">Ebay Title</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/invoice-generator.html">Invoice Generator</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/weight-loss.html">Weight Loss Calculator</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="tool-page">
+      <div class="tool-header">
+        <h1>URL Encode/Decode</h1>
+        <p>Encode or decode URLs for API requests. Fast and free online tool.</p>
+      </div>
+
+      <div class="tool-content">
+        <div class="input-group">
+          <label for="inputText">Enter text to encode/decode:</label>
+          <textarea id="inputText" placeholder="https://example.com/search?q=hello world"></textarea>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="encodeURL()">Encode</button>
+          <button class="btn btn-primary" onclick="decodeURL()">Decode</button>
+          <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="output-area">
+          <label for="output">Result:</label>
+          <div class="output-wrapper">
+            <textarea id="output" class="output-box" readonly></textarea>
+            <button class="copy-btn" onclick="copyOutput()">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <h3>You May Also Like</h3>
+        <ul>
+          <li><a href="json-to-typescript.html">JSON to TypeScript</a></li>
+          <li><a href="timestamp-converter.html">Timestamp Converter</a></li>
+          <li><a href="regex-tester.html">Regex Tester</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON Converter</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Free Online Tools.</p>
+    <p style="margin-top: 10px;">
+      <a href="../../privacy.html" style="color: var(--text-secondary); margin: 0 10px;">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    function encodeURL() {
+      const input = document.getElementById('inputText').value;
+      if (!input) {
+        showError('Please enter text to encode', 'output');
+        return;
+      }
+      const encoded = encodeURIComponent(input);
+      document.getElementById('output').value = encoded;
+      showNotification('Encoded successfully!');
+    }
+
+    function decodeURL() {
+      const input = document.getElementById('inputText').value;
+      if (!input) {
+        showError('Please enter text to decode', 'output');
+        return;
+      }
+      try {
+        const decoded = decodeURIComponent(input);
+        document.getElementById('output').value = decoded;
+        showNotification('Decoded successfully!');
+      } catch (e) {
+        showError('Invalid encoded URL: ' + e.message, 'output');
+      }
+    }
+
+    function clearAll() {
+      document.getElementById('inputText').value = '';
+      document.getElementById('output').value = '';
+    }
+
+    function copyOutput() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      showNotification('Copied to clipboard!');
+    }
+  </script>
+</body>
+</html>

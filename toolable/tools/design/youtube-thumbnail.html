@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free YouTube Thumbnail Text Overlay Tool Online (2026)</title>
+  <meta name="description" content="Add text overlay to YouTube thumbnails instantly. Free online tool for content creators. No registration required.">
+  <meta name="keywords" content="YouTube thumbnail, text overlay, thumbnail maker, free design tool">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-container">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <span class="nav-link">Dev Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../dev/json-to-typescript.html">JSON to TypeScript</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-dart.html">JSON to Dart</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-python.html">JSON to Python</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-go.html">JSON to Go</a></li>
+            <li class="dropdown-item"><a href="../dev/url-encode.html">URL Encode</a></li>
+            <li class="dropdown-item"><a href="../dev/timestamp-converter.html">Timestamp Converter</a></li>
+            <li class="dropdown-item"><a href="../dev/hex-to-rgb.html">Hex to RGB</a></li>
+            <li class="dropdown-item"><a href="../dev/regex-tester.html">Regex Tester</a></li>
+            <li class="dropdown-item"><a href="../dev/markdown-table.html">Markdown Table</a></li>
+            <li class="dropdown-item"><a href="../dev/csv-to-json.html">CSV to JSON</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Design Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../design/youtube-thumbnail.html">YouTube Thumbnail</a></li>
+            <li class="dropdown-item"><a href="../design/tiktok-caption.html">TikTok Caption</a></li>
+            <li class="dropdown-item"><a href="../design/instagram-hashtag.html">Instagram Hashtag</a></li>
+            <li class="dropdown-item"><a href="../design/discord-emoji.html">Discord Emoji</a></li>
+            <li class="dropdown-item"><a href="../design/twitch-banner.html">Twitch Banner</a></li>
+            <li class="dropdown-item"><a href="../design/notion-template.html">Notion Template</a></li>
+            <li class="dropdown-item"><a href="../design/canva-color.html">Canva Color Extract</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Ecommerce Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../ecommerce/amazon-asin.html">Amazon ASIN</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/shopify-csv.html">Shopify CSV</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/ebay-title.html">Ebay Title</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/invoice-generator.html">Invoice Generator</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/weight-loss.html">Weight Loss Calculator</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container">
+    <div class="tool-page">
+      <div class="tool-header">
+        <h1>YouTube Thumbnail Text Overlay</h1>
+        <p>Add custom text overlay to your YouTube thumbnails. Create eye-catching thumbnails in seconds.</p>
+      </div>
+
+      <div class="tool-content">
+        <div class="input-group">
+          <label for="thumbnailUrl">Thumbnail Image URL:</label>
+          <input type="text" id="thumbnailUrl" placeholder="https://example.com/thumbnail.jpg">
+        </div>
+
+        <div class="input-group">
+          <label for="overlayText">Text to Overlay:</label>
+          <textarea id="overlayText" placeholder="Enter your text here" rows="3"></textarea>
+        </div>
+
+        <div class="input-group">
+          <label for="textPosition">Text Position:</label>
+          <select id="textPosition">
+            <option value="top-left">Top Left</option>
+            <option value="top-center">Top Center</option>
+            <option value="top-right">Top Right</option>
+            <option value="center">Center</option>
+            <option value="bottom-left">Bottom Left</option>
+            <option value="bottom-center">Bottom Center</option>
+            <option value="bottom-right">Bottom Right</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="fontSize">Font Size (px):</label>
+          <input type="number" id="fontSize" value="48" min="12" max="200">
+        </div>
+
+        <div class="input-group">
+          <label for="textColor">Text Color:</label>
+          <input type="color" id="textColor" value="#ffffff" style="width: 100px; height: 40px;">
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="generatePreview()">Generate Preview</button>
+          <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="output-area">
+          <label>Preview:</label>
+          <div id="preview" style="margin-top: 16px; border: 2px solid var(--border-color); border-radius: 8px; overflow: hidden; min-height: 300px; display: flex; align-items: center; justify-content: center; background: var(--bg-color);">
+            <p style="color: var(--text-secondary);">Upload an image and add text to see preview</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <h3>You May Also Like</h3>
+        <ul>
+          <li><a href="tiktok-caption.html">TikTok Caption Splitter</a></li>
+          <li><a href="instagram-hashtag.html">Instagram Hashtag Analyzer</a></li>
+          <li><a href="discord-emoji.html">Discord Emoji Maker</a></li>
+          <li><a href="twitch-banner.html">Twitch Banner Resizer</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Free Online Tools.</p>
+    <p style="margin-top: 10px;">
+      <a href="../../privacy.html" style="color: var(--text-secondary); margin: 0 10px;">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    function generatePreview() {
+      const imageUrl = document.getElementById('thumbnailUrl').value;
+      const text = document.getElementById('overlayText').value;
+      const position = document.getElementById('textPosition').value;
+      const fontSize = document.getElementById('fontSize').value;
+      const color = document.getElementById('textColor').value;
+
+      if (!imageUrl) {
+        showError('Please enter an image URL', 'preview');
+        return;
+      }
+
+      const preview = document.getElementById('preview');
+      preview.innerHTML = '';
+
+      const container = document.createElement('div');
+      container.style.position = 'relative';
+      container.style.display = 'inline-block';
+
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.style.maxWidth = '100%';
+      img.style.display = 'block';
+      img.onerror = () => {
+        showError('Failed to load image. Please check the URL.', 'preview');
+      };
+
+      const textOverlay = document.createElement('div');
+      textOverlay.textContent = text;
+      textOverlay.style.position = 'absolute';
+      textOverlay.style.color = color;
+      textOverlay.style.fontSize = fontSize + 'px';
+      textOverlay.style.fontWeight = 'bold';
+      textOverlay.style.textShadow = '2px 2px 4px rgba(0,0,0,0.8)';
+      textOverlay.style.padding = '10px';
+      textOverlay.style.boxSizing = 'border-box';
+
+      const positions = {
+        'top-left': { top: '10px', left: '10px', transform: 'none' },
+        'top-center': { top: '10px', left: '50%', transform: 'translateX(-50%)' },
+        'top-right': { top: '10px', right: '10px', transform: 'none' },
+        'center': { top: '50%', left: '50%', transform: 'translate(-50%, -50%)' },
+        'bottom-left': { bottom: '10px', left: '10px', transform: 'none' },
+        'bottom-center': { bottom: '10px', left: '50%', transform: 'translateX(-50%)' },
+        'bottom-right': { bottom: '10px', right: '10px', transform: 'none' }
+      };
+
+      const pos = positions[position];
+      Object.assign(textOverlay.style, pos);
+
+      container.appendChild(img);
+      container.appendChild(textOverlay);
+      preview.appendChild(container);
+
+      showNotification('Preview generated!');
+    }
+
+    function clearAll() {
+      document.getElementById('thumbnailUrl').value = '';
+      document.getElementById('overlayText').value = '';
+      document.getElementById('preview').innerHTML = '<p style="color: var(--text-secondary);">Upload an image and add text to see preview</p>';
+    }
+  </script>
+</body>
+</html>

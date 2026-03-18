@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Notion Template Converter Online (2026)</title>
+  <meta name="description" content="Convert content to Notion template format. Free tool for Notion users. No registration required.">
+  <meta name="keywords" content="Notion template, notion converter, productivity tool, free notion tool">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-container">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <span class="nav-link">Dev Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../dev/json-to-typescript.html">JSON to TypeScript</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-dart.html">JSON to Dart</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-python.html">JSON to Python</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-go.html">JSON to Go</a></li>
+            <li class="dropdown-item"><a href="../dev/url-encode.html">URL Encode</a></li>
+            <li class="dropdown-item"><a href="../dev/timestamp-converter.html">Timestamp Converter</a></li>
+            <li class="dropdown-item"><a href="../dev/hex-to-rgb.html">Hex to RGB</a></li>
+            <li class="dropdown-item"><a href="../dev/regex-tester.html">Regex Tester</a></li>
+            <li class="dropdown-item"><a href="../dev/markdown-table.html">Markdown Table</a></li>
+            <li class="dropdown-item"><a href="../dev/csv-to-json.html">CSV to JSON</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Design Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../design/youtube-thumbnail.html">YouTube Thumbnail</a></li>
+            <li class="dropdown-item"><a href="../design/tiktok-caption.html">TikTok Caption</a></li>
+            <li class="dropdown-item"><a href="../design/instagram-hashtag.html">Instagram Hashtag</a></li>
+            <li class="dropdown-item"><a href="../design/discord-emoji.html">Discord Emoji</a></li>
+            <li class="dropdown-item"><a href="../design/twitch-banner.html">Twitch Banner</a></li>
+            <li class="dropdown-item"><a href="../design/notion-template.html">Notion Template</a></li>
+            <li class="dropdown-item"><a href="../design/canva-color.html">Canva Color Extract</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Ecommerce Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../ecommerce/amazon-asin.html">Amazon ASIN</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/shopify-csv.html">Shopify CSV</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/ebay-title.html">Ebay Title</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/invoice-generator.html">Invoice Generator</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/weight-loss.html">Weight Loss Calculator</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container">
+    <div class="tool-page">
+      <div class="tool-header">
+        <h1>Notion Template Converter</h1>
+        <p>Format your content for Notion templates. Generate markdown compatible with Notion.</p>
+      </div>
+
+      <div class="tool-content">
+        <div class="input-group">
+          <label for="contentInput">Your Content:</label>
+          <textarea id="contentInput" placeholder="Enter your content..." rows="6"></textarea>
+        </div>
+
+        <div class="input-group">
+          <label for="templateType">Template Type:</label>
+          <select id="templateType">
+            <option value="page">Notion Page</option>
+            <option value="database">Database Template</option>
+            <option value="toc">Table of Contents</option>
+          </select>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="convertToNotion()">Convert</button>
+          <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="output-area">
+          <label for="output">Notion Format:</label>
+          <div class="output-wrapper">
+            <textarea id="output" class="output-box" readonly></textarea>
+            <button class="copy-btn" onclick="copyOutput()">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <h3>You May Also Like</h3>
+        <ul>
+          <li><a href="youtube-thumbnail.html">YouTube Thumbnail</a></li>
+          <li><a href="canva-color.html">Canva Color Extract</a></li>
+          <li><a href="../dev/markdown-table.html">Markdown Table</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Free Online Tools.</p>
+    <p style="margin-top: 10px;">
+      <a href="../../privacy.html" style="color: var(--text-secondary); margin: 0 10px;">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    function convertToNotion() {
+      const content = document.getElementById('contentInput').value;
+      const type = document.getElementById('templateType').value;
+      
+      if (!content) {
+        showError('Please enter content', 'output');
+        return;
+      }
+
+      let output = '';
+      
+      if (type === 'page') {
+        output = `# ${content.split('\n')[0]}\n\n${content}`;
+      } else if (type === 'database') {
+        output = `## Database Template\n\n| Property | Type |\n|----------|------|\n| Name | Title |\n| Status | Select |\n| Date | Date |\n\n## Content\n\n${content}`;
+      } else if (type === 'toc') {
+        const lines = content.split('\n').filter(l => l.trim());
+        output = '# Table of Contents\n\n' + lines.map((line, i) => `- [${line}](#${i + 1})`).join('\n') + '\n\n' + content;
+      }
+
+      document.getElementById('output').value = output;
+      showNotification('Converted!');
+    }
+
+    function clearAll() {
+      document.getElementById('contentInput').value = '';
+      document.getElementById('output').value = '';
+    }
+
+    function copyOutput() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      showNotification('Copied to clipboard!');
+    }
+  </script>
+</body>
+</html>
