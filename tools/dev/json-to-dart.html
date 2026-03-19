@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free JSON to Dart Model Converter Online (2026)</title>
+  <meta name="description" content="Convert JSON to Dart model classes instantly. Free online tool for Flutter developers. Generate Dart models from JSON with no registration.">
+  <meta name="keywords" content="JSON to Dart, Dart model generator, Flutter JSON converter, free Dart tool">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <span class="nav-link">Dev Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="json-to-typescript.html">JSON to TypeScript</a></li>
+            <li class="dropdown-item"><a href="json-to-dart.html">JSON to Dart</a></li>
+            <li class="dropdown-item"><a href="json-to-python.html">JSON to Python</a></li>
+            <li class="dropdown-item"><a href="json-to-go.html">JSON to Go</a></li>
+            <li class="dropdown-item"><a href="url-encode.html">URL Encode</a></li>
+            <li class="dropdown-item"><a href="timestamp-converter.html">Timestamp Converter</a></li>
+            <li class="dropdown-item"><a href="hex-to-rgb.html">Hex to RGB</a></li>
+            <li class="dropdown-item"><a href="regex-tester.html">Regex Tester</a></li>
+            <li class="dropdown-item"><a href="markdown-table.html">Markdown Table</a></li>
+            <li class="dropdown-item"><a href="csv-to-json.html">CSV to JSON</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Design Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../design/youtube-thumbnail.html">YouTube Thumbnail</a></li>
+            <li class="dropdown-item"><a href="../design/tiktok-caption.html">TikTok Caption</a></li>
+            <li class="dropdown-item"><a href="../design/instagram-hashtag.html">Instagram Hashtag</a></li>
+            <li class="dropdown-item"><a href="../design/discord-emoji.html">Discord Emoji</a></li>
+            <li class="dropdown-item"><a href="../design/twitch-banner.html">Twitch Banner</a></li>
+            <li class="dropdown-item"><a href="../design/notion-template.html">Notion Template</a></li>
+            <li class="dropdown-item"><a href="../design/canva-color.html">Canva Color Extract</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Ecommerce Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../ecommerce/amazon-asin.html">Amazon ASIN</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/shopify-csv.html">Shopify CSV</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/ebay-title.html">Ebay Title</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/invoice-generator.html">Invoice Generator</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/weight-loss.html">Weight Loss Calculator</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="tool-page">
+      <div class="tool-header">
+        <h1>JSON to Dart Model Converter</h1>
+        <p>Convert JSON data to Dart model classes for Flutter. Generate Dart models with fromJson and toJson methods.</p>
+      </div>
+
+      <div class="tool-content">
+        <div class="input-group">
+          <label for="jsonInput">Paste your JSON:</label>
+          <textarea id="jsonInput" placeholder='{"name": "John", "age": 30, "isActive": true}'></textarea>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="convertToDart()">Convert to Dart</button>
+          <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="output-area">
+          <label for="output">Dart Model:</label>
+          <div class="output-wrapper">
+            <textarea id="output" class="output-box" readonly></textarea>
+            <button class="copy-btn" onclick="copyOutput()">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <h3>You May Also Like</h3>
+        <ul>
+          <li><a href="json-to-typescript.html">JSON to TypeScript</a></li>
+          <li><a href="json-to-python.html">JSON to Python Class</a></li>
+          <li><a href="json-to-go.html">JSON to Go Struct</a></li>
+          <li><a href="csv-to-json.html">CSV to JSON Converter</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Free Online Tools.</p>
+    <p style="margin-top: 10px;">
+      <a href="../../tool-privacy.html" style="color: var(--text-secondary); margin: 0 10px;">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    function convertToDart() {
+      const jsonInput = document.getElementById('jsonInput').value.trim();
+      const output = document.getElementById('output');
+      
+      if (!jsonInput) {
+        showError('Please enter JSON data', 'output');
+        return;
+      }
+
+      try {
+        const parsed = JSON.parse(jsonInput);
+        const dartCode = generateDartModel(parsed, 'Root');
+        output.value = dartCode;
+        showNotification('Conversion successful!');
+      } catch (e) {
+        showError('Invalid JSON format: ' + e.message, 'output');
+      }
+    }
+
+    function generateDartModel(obj, className, seen = new Set()) {
+      if (seen.has(className)) return '';
+      seen.add(className);
+
+      let code = `class ${className} {\n`;
+      let fields = [];
+      let fromJsonParams = [];
+      let toJsonBody = [];
+
+      for (const [key, value] of Object.entries(obj)) {
+        const dartKey = key;
+        let dartType;
+        
+        if (value === null) {
+          dartType = 'dynamic';
+        } else if (Array.isArray(value)) {
+          if (value.length === 0) {
+            dartType = 'List<dynamic>';
+          } else {
+            const itemType = value[0];
+            if (typeof itemType === 'object' && itemType !== null) {
+              const nestedName = capitalize(key.endsWith('s') ? key.slice(0, -1) : key);
+              dartType = `List<${nestedName}>`;
+              code += generateDartModel(itemType, nestedName, seen);
+            } else {
+              dartType = `List<${getDartPrimitiveType(itemType)}>`;
+            }
+          }
+        } else if (typeof value === 'object') {
+          const nestedName = capitalize(key);
+          dartType = nestedName;
+          code += generateDartModel(value, nestedName, seen);
+        } else {
+          dartType = getDartPrimitiveType(value);
+        }
+
+        fields.push(`  final ${dartType} ${dartKey};`);
+        fromJsonParams.push(`    ${dartKey}: json['${key}']${dartType.includes('List') || dartType === 'dynamic' ? '' : ' as ' + dartType},`);
+        toJsonBody.push(`    '${key}': ${dartKey},`);
+      }
+
+      code += fields.join('\n') + '\n\n';
+      code += `  ${className}({\n${fromJsonParams.map(p => p.replace('final ', '    required ')).join('\n')}\n  });\n\n`;
+      code += `  factory ${className}.fromJson(Map<String, dynamic> json) {\n    return ${className}(\n${fromJsonParams.join('\n')}\n    );\n  }\n\n`;
+      code += `  Map<String, dynamic> toJson() {\n    return {\n${toJsonBody.join('\n')}\n    };\n  }\n}\n\n`;
+
+      return code;
+    }
+
+    function getDartPrimitiveType(value) {
+      if (typeof value === 'string') return 'String';
+      if (typeof value === 'number') return 'num';
+      if (typeof value === 'boolean') return 'bool';
+      return 'dynamic';
+    }
+
+    function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function clearAll() {
+      document.getElementById('jsonInput').value = '';
+      document.getElementById('output').value = '';
+    }
+
+    function copyOutput() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      showNotification('Copied to clipboard!');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free CSV to JSON Converter Online - Nest Data (2026)</title>
+  <meta name="description" content="Convert CSV data to JSON format instantly. Free online CSV to JSON converter with nested structure support. No registration required.">
+  <meta name="keywords" content="CSV to JSON, converter, data formatter, free CSV tool">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <span class="nav-link">Dev Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="json-to-typescript.html">JSON to TypeScript</a></li>
+            <li class="dropdown-item"><a href="json-to-dart.html">JSON to Dart</a></li>
+            <li class="dropdown-item"><a href="json-to-python.html">JSON to Python</a></li>
+            <li class="dropdown-item"><a href="json-to-go.html">JSON to Go</a></li>
+            <li class="dropdown-item"><a href="url-encode.html">URL Encode</a></li>
+            <li class="dropdown-item"><a href="timestamp-converter.html">Timestamp Converter</a></li>
+            <li class="dropdown-item"><a href="hex-to-rgb.html">Hex to RGB</a></li>
+            <li class="dropdown-item"><a href="regex-tester.html">Regex Tester</a></li>
+            <li class="dropdown-item"><a href="markdown-table.html">Markdown Table</a></li>
+            <li class="dropdown-item"><a href="csv-to-json.html">CSV to JSON</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Design Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../design/youtube-thumbnail.html">YouTube Thumbnail</a></li>
+            <li class="dropdown-item"><a href="../design/tiktok-caption.html">TikTok Caption</a></li>
+            <li class="dropdown-item"><a href="../design/instagram-hashtag.html">Instagram Hashtag</a></li>
+            <li class="dropdown-item"><a href="../design/discord-emoji.html">Discord Emoji</a></li>
+            <li class="dropdown-item"><a href="../design/twitch-banner.html">Twitch Banner</a></li>
+            <li class="dropdown-item"><a href="../design/notion-template.html">Notion Template</a></li>
+            <li class="dropdown-item"><a href="../design/canva-color.html">Canva Color Extract</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Ecommerce Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../ecommerce/amazon-asin.html">Amazon ASIN</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/shopify-csv.html">Shopify CSV</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/ebay-title.html">Ebay Title</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/invoice-generator.html">Invoice Generator</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/weight-loss.html">Weight Loss Calculator</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="tool-page">
+      <div class="tool-header">
+        <h1>CSV to JSON Converter</h1>
+        <p>Convert CSV data to JSON format instantly. Supports nested JSON structures and custom delimiters.</p>
+      </div>
+
+      <div class="tool-content">
+        <div class="input-group">
+          <label for="csvInput">CSV Data:</label>
+          <textarea id="csvInput" placeholder="name,age,email&#10;John,30,john@example.com&#10;Jane,25,jane@example.com" style="min-height: 200px;">name,age,email
+John,30,john@example.com
+Jane,25,jane@example.com
+Bob,35,bob@example.com</textarea>
+        </div>
+
+        <div class="input-group">
+          <label for="delimiter">Delimiter:</label>
+          <select id="delimiter">
+            <option value=",">Comma (,)</option>
+            <option value=";">Semicolon (;)</option>
+            <option value="|">Pipe (|)</option>
+            <option value="	">Tab</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>
+            <input type="checkbox" id="nestedJson"> Generate Nested JSON (for dot notation keys)
+          </label>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="convertToJson()">Convert to JSON</button>
+          <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="output-area">
+          <label for="jsonOutput">JSON Output:</label>
+          <div class="output-wrapper">
+            <textarea id="jsonOutput" class="output-box" readonly></textarea>
+            <button class="copy-btn" onclick="copyOutput()">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <h3>You May Also Like</h3>
+        <ul>
+          <li><a href="json-to-typescript.html">JSON to TypeScript</a></li>
+          <li><a href="json-to-dart.html">JSON to Dart Model</a></li>
+          <li><a href="markdown-table.html">Markdown Table Generator</a></li>
+          <li><a href="url-encode.html">URL Encode</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Free Online Tools.</p>
+    <p style="margin-top: 10px;">
+      <a href="../../tool-privacy.html" style="color: var(--text-secondary); margin: 0 10px;">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    function convertToJson() {
+      const csvInput = document.getElementById('csvInput').value.trim();
+      const delimiter = document.getElementById('delimiter').value;
+      const nestedJson = document.getElementById('nestedJson').checked;
+      
+      if (!csvInput) {
+        showError('Please enter CSV data', 'jsonOutput');
+        return;
+      }
+
+      try {
+        const lines = csvInput.split('\n').filter(line => line.trim());
+        if (lines.length < 2) {
+          showError('CSV must have at least a header row and one data row', 'jsonOutput');
+          return;
+        }
+
+        const headers = lines[0].split(delimiter).map(h => h.trim().replace(/^["']|["']$/g, ''));
+        const result = [];
+
+        for (let i = 1; i < lines.length; i++) {
+          const values = parseCSVLine(lines[i], delimiter);
+          const obj = {};
+
+          if (nestedJson) {
+            headers.forEach((header, index) => {
+              const value = values[index] || '';
+              setNestedValue(obj, header, parseValue(value));
+            });
+          } else {
+            headers.forEach((header, index) => {
+              obj[header] = parseValue(values[index] || '');
+            });
+          }
+
+          result.push(obj);
+        }
+
+        const jsonOutput = JSON.stringify(result, null, 2);
+        document.getElementById('jsonOutput').value = jsonOutput;
+        showNotification('Converted successfully!');
+      } catch (e) {
+        showError('Error converting CSV: ' + e.message, 'jsonOutput');
+      }
+    }
+
+    function parseCSVLine(line, delimiter) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        
+        if (char === '"') {
+          inQuotes = !inQuotes;
+        } else if (char === delimiter && !inQuotes) {
+          result.push(current.trim().replace(/^["']|["']$/g, ''));
+          current = '';
+        } else {
+          current += char;
+        }
+      }
+
+      result.push(current.trim().replace(/^["']|["']$/g, ''));
+      return result;
+    }
+
+    function parseValue(value) {
+      if (value === '' || value === 'null') return null;
+      if (value === 'true') return true;
+      if (value === 'false') return false;
+      if (!isNaN(value) && value !== '') return Number(value);
+      return value;
+    }
+
+    function setNestedValue(obj, path, value) {
+      const keys = path.split('.');
+      let current = obj;
+
+      for (let i = 0; i < keys.length - 1; i++) {
+        const key = keys[i];
+        if (!(key in current)) {
+          current[key] = {};
+        }
+        current = current[key];
+      }
+
+      current[keys[keys.length - 1]] = value;
+    }
+
+    function clearAll() {
+      document.getElementById('csvInput').value = '';
+      document.getElementById('jsonOutput').value = '';
+      document.getElementById('nestedJson').checked = false;
+    }
+
+    function copyOutput() {
+      const output = document.getElementById('jsonOutput');
+      output.select();
+      document.execCommand('copy');
+      showNotification('Copied to clipboard!');
+    }
+  </script>
+</body>
+</html>

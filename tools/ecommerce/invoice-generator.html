@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Invoice Generator Online - Simple Invoice Maker (2026)</title>
+  <meta name="description" content="Generate simple invoices online for free. Easy invoice maker for small business. No registration required.">
+  <meta name="keywords" content="invoice generator, invoice maker, free invoice tool, business tool">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-container">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <span class="nav-link">Dev Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../dev/json-to-typescript.html">JSON to TypeScript</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-dart.html">JSON to Dart</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-python.html">JSON to Python</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-go.html">JSON to Go</a></li>
+            <li class="dropdown-item"><a href="../dev/url-encode.html">URL Encode</a></li>
+            <li class="dropdown-item"><a href="../dev/timestamp-converter.html">Timestamp Converter</a></li>
+            <li class="dropdown-item"><a href="../dev/hex-to-rgb.html">Hex to RGB</a></li>
+            <li class="dropdown-item"><a href="../dev/regex-tester.html">Regex Tester</a></li>
+            <li class="dropdown-item"><a href="../dev/markdown-table.html">Markdown Table</a></li>
+            <li class="dropdown-item"><a href="../dev/csv-to-json.html">CSV to JSON</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Design Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../design/youtube-thumbnail.html">YouTube Thumbnail</a></li>
+            <li class="dropdown-item"><a href="../design/tiktok-caption.html">TikTok Caption</a></li>
+            <li class="dropdown-item"><a href="../design/instagram-hashtag.html">Instagram Hashtag</a></li>
+            <li class="dropdown-item"><a href="../design/discord-emoji.html">Discord Emoji</a></li>
+            <li class="dropdown-item"><a href="../design/twitch-banner.html">Twitch Banner</a></li>
+            <li class="dropdown-item"><a href="../design/notion-template.html">Notion Template</a></li>
+            <li class="dropdown-item"><a href="../design/canva-color.html">Canva Color Extract</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Ecommerce Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../ecommerce/amazon-asin.html">Amazon ASIN</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/shopify-csv.html">Shopify CSV</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/ebay-title.html">Ebay Title</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/invoice-generator.html">Invoice Generator</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/weight-loss.html">Weight Loss Calculator</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container">
+    <div class="tool-page">
+      <div class="tool-header">
+        <h1>Simple Invoice Generator</h1>
+        <p>Create professional invoices in seconds. Free and easy to use.</p>
+      </div>
+
+      <div class="tool-content">
+        <div class="input-group">
+          <label>From (Your Business):</label>
+          <input type="text" id="fromName" placeholder="Your Business Name" style="margin-bottom: 8px;">
+          <input type="text" id="fromEmail" placeholder="Your Email">
+        </div>
+
+        <div class="input-group">
+          <label>To (Client):</label>
+          <input type="text" id="clientName" placeholder="Client Name" style="margin-bottom: 8px;">
+          <input type="text" id="clientEmail" placeholder="Client Email">
+        </div>
+
+        <div class="input-group">
+          <label>Invoice Details:</label>
+          <input type="text" id="invoiceNumber" placeholder="Invoice #" style="margin-bottom: 8px;">
+          <input type="date" id="invoiceDate" style="margin-bottom: 8px;">
+        </div>
+
+        <div id="itemsContainer"></div>
+
+        <button class="btn btn-secondary" onclick="addItem()" style="margin-bottom: 20px;">+ Add Item</button>
+
+        <div class="output-area">
+          <label>Total: $<span id="totalAmount">0.00</span></label>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="generateInvoice()">Generate Invoice</button>
+          <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="output-area">
+          <label>Preview:</label>
+          <div id="invoicePreview" style="margin-top: 16px; padding: 20px; background: white; border: 1px solid var(--border-color); border-radius: 8px;"></div>
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <h3>You May Also Like</h3>
+        <ul>
+          <li><a href="amazon-asin.html">Amazon ASIN Tool</a></li>
+          <li><a href="shopify-csv.html">Shopify CSV Generator</a></li>
+          <li><a href="weight-loss.html">Weight Loss Calculator</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Free Online Tools.</p>
+    <p style="margin-top: 10px;">
+      <a href="../../tool-privacy.html" style="color: var(--text-secondary); margin: 0 10px;">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    let itemCount = 0;
+
+    function addItem() {
+      itemCount++;
+      const container = document.getElementById('itemsContainer');
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'input-group';
+      itemDiv.style.display = 'grid';
+      itemDiv.style.gridTemplateColumns = '2fr 1fr 1fr auto';
+      itemDiv.style.gap = '12px';
+      itemDiv.innerHTML = `
+        <input type="text" class="item-desc" placeholder="Description">
+        <input type="number" class="item-qty" placeholder="Qty" value="1" min="1">
+        <input type="number" class="item-price" placeholder="Price" step="0.01">
+        <button class="btn btn-secondary" onclick="this.parentElement.remove(); calculateTotal();" style="padding: 8px 12px;">×</button>
+      `;
+      container.appendChild(itemDiv);
+    }
+
+    function calculateTotal() {
+      let total = 0;
+      document.querySelectorAll('.item-price').forEach(input => {
+        const price = parseFloat(input.value) || 0;
+        const qty = parseFloat(input.parentElement.querySelector('.item-qty').value) || 1;
+        total += price * qty;
+      });
+      document.getElementById('totalAmount').textContent = total.toFixed(2);
+    }
+
+    function generateInvoice() {
+      const fromName = document.getElementById('fromName').value;
+      const fromEmail = document.getElementById('fromEmail').value;
+      const clientName = document.getElementById('clientName').value;
+      const clientEmail = document.getElementById('clientEmail').value;
+      const invoiceNumber = document.getElementById('invoiceNumber').value;
+      const invoiceDate = document.getElementById('invoiceDate').value;
+
+      let itemsHtml = '';
+      let total = 0;
+      document.querySelectorAll('#itemsContainer .input-group').forEach((item, index) => {
+        const desc = item.querySelector('.item-desc').value;
+        const qty = item.querySelector('.item-qty').value;
+        const price = item.querySelector('.item-price').value;
+        const subtotal = (parseFloat(qty) || 0) * (parseFloat(price) || 0);
+        total += subtotal;
+        
+        if (desc) {
+          itemsHtml += `<tr><td>${index + 1}</td><td>${desc}</td><td>${qty}</td><td>$${parseFloat(price || 0).toFixed(2)}</td><td>$${subtotal.toFixed(2)}</td></tr>`;
+        }
+      });
+
+      const preview = document.getElementById('invoicePreview');
+      preview.innerHTML = `
+        <div style="background: white; padding: 30px; border-radius: 8px;">
+          <h2 style="color: var(--primary-color); margin-bottom: 20px;">INVOICE</h2>
+          <p><strong>From:</strong> ${fromName} (${fromEmail})</p>
+          <p><strong>To:</strong> ${clientName} (${clientEmail})</p>
+          <p><strong>Invoice #:</strong> ${invoiceNumber} | <strong>Date:</strong> ${invoiceDate}</p>
+          <table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+            <thead>
+              <tr style="background: var(--primary-color); color: white;">
+                <th style="padding: 10px; text-align: left;">#</th>
+                <th style="padding: 10px; text-align: left;">Description</th>
+                <th style="padding: 10px;">Qty</th>
+                <th style="padding: 10px;">Price</th>
+                <th style="padding: 10px;">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${itemsHtml}
+              <tr style="font-weight: bold; font-size: 18px;">
+                <td colspan="4" style="padding: 10px; text-align: right; border-top: 2px solid var(--border-color);">Total:</td>
+                <td style="padding: 10px; border-top: 2px solid var(--border-color);">$${total.toFixed(2)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `;
+      showNotification('Invoice generated!');
+    }
+
+    function clearAll() {
+      document.getElementById('fromName').value = '';
+      document.getElementById('fromEmail').value = '';
+      document.getElementById('clientName').value = '';
+      document.getElementById('clientEmail').value = '';
+      document.getElementById('invoiceNumber').value = '';
+      document.getElementById('invoiceDate').value = '';
+      document.getElementById('itemsContainer').innerHTML = '';
+      document.getElementById('invoicePreview').innerHTML = '';
+      document.getElementById('totalAmount').textContent = '0.00';
+      itemCount = 0;
+    }
+
+    // Add initial item
+    addItem();
+  </script>
+</body>
+</html>

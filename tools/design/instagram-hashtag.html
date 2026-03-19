@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Instagram Hashtag Analyzer Online (2026)</title>
+  <meta name="description" content="Analyze and optimize Instagram hashtags. Free tool for social media growth. No registration required.">
+  <meta name="keywords" content="Instagram hashtag, hashtag analyzer, social media tool, instagram growth">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-container">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <span class="nav-link">Dev Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../dev/json-to-typescript.html">JSON to TypeScript</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-dart.html">JSON to Dart</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-python.html">JSON to Python</a></li>
+            <li class="dropdown-item"><a href="../dev/json-to-go.html">JSON to Go</a></li>
+            <li class="dropdown-item"><a href="../dev/url-encode.html">URL Encode</a></li>
+            <li class="dropdown-item"><a href="../dev/timestamp-converter.html">Timestamp Converter</a></li>
+            <li class="dropdown-item"><a href="../dev/hex-to-rgb.html">Hex to RGB</a></li>
+            <li class="dropdown-item"><a href="../dev/regex-tester.html">Regex Tester</a></li>
+            <li class="dropdown-item"><a href="../dev/markdown-table.html">Markdown Table</a></li>
+            <li class="dropdown-item"><a href="../dev/csv-to-json.html">CSV to JSON</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Design Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../design/youtube-thumbnail.html">YouTube Thumbnail</a></li>
+            <li class="dropdown-item"><a href="../design/tiktok-caption.html">TikTok Caption</a></li>
+            <li class="dropdown-item"><a href="../design/instagram-hashtag.html">Instagram Hashtag</a></li>
+            <li class="dropdown-item"><a href="../design/discord-emoji.html">Discord Emoji</a></li>
+            <li class="dropdown-item"><a href="../design/twitch-banner.html">Twitch Banner</a></li>
+            <li class="dropdown-item"><a href="../design/notion-template.html">Notion Template</a></li>
+            <li class="dropdown-item"><a href="../design/canva-color.html">Canva Color Extract</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Ecommerce Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../ecommerce/amazon-asin.html">Amazon ASIN</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/shopify-csv.html">Shopify CSV</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/ebay-title.html">Ebay Title</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/invoice-generator.html">Invoice Generator</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/weight-loss.html">Weight Loss Calculator</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container">
+    <div class="tool-page">
+      <div class="tool-header">
+        <h1>Instagram Hashtag Analyzer</h1>
+        <p>Analyze your Instagram hashtags, count them, and optimize for better reach.</p>
+      </div>
+
+      <div class="tool-content">
+        <div class="input-group">
+          <label for="hashtagsInput">Enter Hashtags:</label>
+          <textarea id="hashtagsInput" placeholder="#love #instagood #photooftheday..." rows="6"></textarea>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="analyzeHashtags()">Analyze</button>
+          <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="output-area">
+          <div id="results" style="display: none;">
+            <p><strong>Total Hashtags:</strong> <span id="totalCount">0</span> / 30</p>
+            <p><strong>Status:</strong> <span id="status"></span></p>
+            <div id="hashtagsList" style="margin-top: 16px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <h3>You May Also Like</h3>
+        <ul>
+          <li><a href="youtube-thumbnail.html">YouTube Thumbnail</a></li>
+          <li><a href="tiktok-caption.html">TikTok Caption</a></li>
+          <li><a href="discord-emoji.html">Discord Emoji</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Free Online Tools.</p>
+    <p style="margin-top: 10px;">
+      <a href="../../tool-privacy.html" style="color: var(--text-secondary); margin: 0 10px;">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    function analyzeHashtags() {
+      const input = document.getElementById('hashtagsInput').value;
+      const hashtags = input.match(/#[\w\u4e00-\u9fa5]+/g) || [];
+      const uniqueHashtags = [...new Set(hashtags)];
+
+      document.getElementById('results').style.display = 'block';
+      document.getElementById('totalCount').textContent = uniqueHashtags.length;
+      
+      const status = document.getElementById('status');
+      if (uniqueHashtags.length > 30) {
+        status.innerHTML = '<span style="color: var(--error-color);">Too many! Instagram allows max 30 hashtags.</span>';
+      } else if (uniqueHashtags.length < 5) {
+        status.innerHTML = '<span style="color: var(--warning-color);">Consider adding more hashtags for better reach.</span>';
+      } else {
+        status.innerHTML = '<span style="color: var(--success-color);">✓ Good to go!</span>';
+      }
+
+      document.getElementById('hashtagsList').innerHTML = uniqueHashtags.map(tag => 
+        `<span style="display: inline-block; background: var(--bg-color); padding: 6px 12px; margin: 4px; border-radius: 16px; font-size: 14px;">${tag}</span>`
+      ).join('');
+
+      showNotification(`Found ${uniqueHashtags.length} hashtags!`);
+    }
+
+    function clearAll() {
+      document.getElementById('hashtagsInput').value = '';
+      document.getElementById('results').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

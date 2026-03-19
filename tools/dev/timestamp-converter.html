@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Unix Timestamp Converter Online - Local Time (2026)</title>
+  <meta name="description" content="Convert Unix timestamps to local time and vice versa. Free online timestamp converter tool. No registration required.">
+  <meta name="keywords" content="timestamp converter, unix time, epoch converter, free time tool">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <span class="nav-link">Dev Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="json-to-typescript.html">JSON to TypeScript</a></li>
+            <li class="dropdown-item"><a href="json-to-dart.html">JSON to Dart</a></li>
+            <li class="dropdown-item"><a href="json-to-python.html">JSON to Python</a></li>
+            <li class="dropdown-item"><a href="json-to-go.html">JSON to Go</a></li>
+            <li class="dropdown-item"><a href="url-encode.html">URL Encode</a></li>
+            <li class="dropdown-item"><a href="timestamp-converter.html">Timestamp Converter</a></li>
+            <li class="dropdown-item"><a href="hex-to-rgb.html">Hex to RGB</a></li>
+            <li class="dropdown-item"><a href="regex-tester.html">Regex Tester</a></li>
+            <li class="dropdown-item"><a href="markdown-table.html">Markdown Table</a></li>
+            <li class="dropdown-item"><a href="csv-to-json.html">CSV to JSON</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Design Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../design/youtube-thumbnail.html">YouTube Thumbnail</a></li>
+            <li class="dropdown-item"><a href="../design/tiktok-caption.html">TikTok Caption</a></li>
+            <li class="dropdown-item"><a href="../design/instagram-hashtag.html">Instagram Hashtag</a></li>
+            <li class="dropdown-item"><a href="../design/discord-emoji.html">Discord Emoji</a></li>
+            <li class="dropdown-item"><a href="../design/twitch-banner.html">Twitch Banner</a></li>
+            <li class="dropdown-item"><a href="../design/notion-template.html">Notion Template</a></li>
+            <li class="dropdown-item"><a href="../design/canva-color.html">Canva Color Extract</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Ecommerce Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../ecommerce/amazon-asin.html">Amazon ASIN</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/shopify-csv.html">Shopify CSV</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/ebay-title.html">Ebay Title</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/invoice-generator.html">Invoice Generator</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/weight-loss.html">Weight Loss Calculator</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="tool-page">
+      <div class="tool-header">
+        <h1>Unix Timestamp Converter</h1>
+        <p>Convert Unix timestamps to local time and dates to timestamps instantly.</p>
+      </div>
+
+      <div class="tool-content">
+        <div class="input-group">
+          <label for="timestampInput">Unix Timestamp (seconds):</label>
+          <input type="number" id="timestampInput" placeholder="1704067200">
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="convertTimestampToDateTime()">Convert to DateTime</button>
+          <button class="btn btn-primary" onclick="getCurrentTimestamp()">Get Current Timestamp</button>
+        </div>
+
+        <div class="output-area">
+          <label for="dateTimeOutput">DateTime Result:</label>
+          <div class="output-wrapper">
+            <input type="text" id="dateTimeOutput" class="output-box" readonly>
+            <button class="copy-btn" onclick="copyDateTime()">Copy</button>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+          <div class="input-group">
+            <label for="dateInput">Date/Time String:</label>
+            <input type="text" id="dateInput" placeholder="2024-01-01 12:00:00">
+          </div>
+
+          <div class="btn-group">
+            <button class="btn btn-primary" onclick="convertDateToTimestamp()">Convert to Timestamp</button>
+            <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+          </div>
+
+          <div class="output-area">
+            <label for="timestampOutput">Timestamp Result:</label>
+            <div class="output-wrapper">
+              <input type="number" id="timestampOutput" class="output-box" readonly>
+              <button class="copy-btn" onclick="copyTimestamp()">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <h3>You May Also Like</h3>
+        <ul>
+          <li><a href="json-to-typescript.html">JSON to TypeScript</a></li>
+          <li><a href="url-encode.html">URL Encode</a></li>
+          <li><a href="hex-to-rgb.html">Hex to RGB</a></li>
+          <li><a href="regex-tester.html">Regex Tester</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Free Online Tools.</p>
+    <p style="margin-top: 10px;">
+      <a href="../../tool-privacy.html" style="color: var(--text-secondary); margin: 0 10px;">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    function convertTimestampToDateTime() {
+      const timestamp = parseInt(document.getElementById('timestampInput').value);
+      if (!timestamp) {
+        showError('Please enter a timestamp', 'dateTimeOutput');
+        return;
+      }
+      const date = new Date(timestamp * 1000);
+      document.getElementById('dateTimeOutput').value = date.toLocaleString();
+      showNotification('Converted successfully!');
+    }
+
+    function getCurrentTimestamp() {
+      const now = new Date();
+      const timestamp = Math.floor(now.getTime() / 1000);
+      document.getElementById('timestampInput').value = timestamp;
+      convertTimestampToDateTime();
+    }
+
+    function convertDateToTimestamp() {
+      const dateStr = document.getElementById('dateInput').value;
+      if (!dateStr) {
+        showError('Please enter a date/time string', 'timestampOutput');
+        return;
+      }
+      try {
+        const date = new Date(dateStr);
+        const timestamp = Math.floor(date.getTime() / 1000);
+        document.getElementById('timestampOutput').value = timestamp;
+        showNotification('Converted successfully!');
+      } catch (e) {
+        showError('Invalid date format: ' + e.message, 'timestampOutput');
+      }
+    }
+
+    function clearAll() {
+      document.getElementById('timestampInput').value = '';
+      document.getElementById('dateTimeOutput').value = '';
+      document.getElementById('dateInput').value = '';
+      document.getElementById('timestampOutput').value = '';
+    }
+
+    function copyDateTime() {
+      const output = document.getElementById('dateTimeOutput');
+      output.select();
+      document.execCommand('copy');
+      showNotification('Copied to clipboard!');
+    }
+
+    function copyTimestamp() {
+      const output = document.getElementById('timestampOutput');
+      output.select();
+      document.execCommand('copy');
+      showNotification('Copied to clipboard!');
+    }
+  </script>
+</body>
+</html>

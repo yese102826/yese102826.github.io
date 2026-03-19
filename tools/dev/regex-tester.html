@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Regex Tester Online - Email Validator (2026)</title>
+  <meta name="description" content="Test regular expressions online with our free regex tester. Validate emails and test patterns instantly. No registration required.">
+  <meta name="keywords" content="regex tester, regular expression, email validator, free regex tool">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <span class="nav-link">Dev Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="json-to-typescript.html">JSON to TypeScript</a></li>
+            <li class="dropdown-item"><a href="json-to-dart.html">JSON to Dart</a></li>
+            <li class="dropdown-item"><a href="json-to-python.html">JSON to Python</a></li>
+            <li class="dropdown-item"><a href="json-to-go.html">JSON to Go</a></li>
+            <li class="dropdown-item"><a href="url-encode.html">URL Encode</a></li>
+            <li class="dropdown-item"><a href="timestamp-converter.html">Timestamp Converter</a></li>
+            <li class="dropdown-item"><a href="hex-to-rgb.html">Hex to RGB</a></li>
+            <li class="dropdown-item"><a href="regex-tester.html">Regex Tester</a></li>
+            <li class="dropdown-item"><a href="markdown-table.html">Markdown Table</a></li>
+            <li class="dropdown-item"><a href="csv-to-json.html">CSV to JSON</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Design Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../design/youtube-thumbnail.html">YouTube Thumbnail</a></li>
+            <li class="dropdown-item"><a href="../design/tiktok-caption.html">TikTok Caption</a></li>
+            <li class="dropdown-item"><a href="../design/instagram-hashtag.html">Instagram Hashtag</a></li>
+            <li class="dropdown-item"><a href="../design/discord-emoji.html">Discord Emoji</a></li>
+            <li class="dropdown-item"><a href="../design/twitch-banner.html">Twitch Banner</a></li>
+            <li class="dropdown-item"><a href="../design/notion-template.html">Notion Template</a></li>
+            <li class="dropdown-item"><a href="../design/canva-color.html">Canva Color Extract</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Ecommerce Tools ▼</span>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="../ecommerce/amazon-asin.html">Amazon ASIN</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/shopify-csv.html">Shopify CSV</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/ebay-title.html">Ebay Title</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/invoice-generator.html">Invoice Generator</a></li>
+            <li class="dropdown-item"><a href="../ecommerce/weight-loss.html">Weight Loss Calculator</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="tool-page">
+      <div class="tool-header">
+        <h1>Regex Tester - Email Validator</h1>
+        <p>Test regular expressions and validate email addresses instantly. Built-in email pattern included.</p>
+      </div>
+
+      <div class="tool-content">
+        <div class="input-group">
+          <label for="regexPattern">Regular Expression Pattern:</label>
+          <input type="text" id="regexPattern" placeholder="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" value="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+        </div>
+
+        <div class="input-group">
+          <label for="testString">Test String:</label>
+          <textarea id="testString" placeholder="Enter text to test against the pattern&#10;test@example.com&#10;invalid-email"></textarea>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="testRegex()">Test Regex</button>
+          <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="output-area">
+          <label for="result">Result:</label>
+          <div class="output-wrapper">
+            <textarea id="result" class="output-box" readonly></textarea>
+            <button class="copy-btn" onclick="copyOutput()">Copy</button>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+          <h3>Common Regex Patterns</h3>
+          <div style="margin-top: 16px;">
+            <div style="background: var(--bg-color); padding: 12px; border-radius: 8px; margin-bottom: 12px;">
+              <strong>Email:</strong><br>
+              <code style="color: var(--primary-color);">^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code>
+              <button class="btn btn-primary" style="margin-left: 12px; padding: 4px 12px; font-size: 12px;" onclick="usePattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')">Use</button>
+            </div>
+            <div style="background: var(--bg-color); padding: 12px; border-radius: 8px; margin-bottom: 12px;">
+              <strong>URL:</strong><br>
+              <code style="color: var(--primary-color);">^https?:\/\/[^\s]+$</code>
+              <button class="btn btn-primary" style="margin-left: 12px; padding: 4px 12px; font-size: 12px;" onclick="usePattern('^https?:\/\/[^\\s]+$')">Use</button>
+            </div>
+            <div style="background: var(--bg-color); padding: 12px; border-radius: 8px; margin-bottom: 12px;">
+              <strong>Phone Number:</strong><br>
+              <code style="color: var(--primary-color);">^\+?[\d\s-()]+$</code>
+              <button class="btn btn-primary" style="margin-left: 12px; padding: 4px 12px; font-size: 12px;" onclick="usePattern('^\\+?[\\d\\s-()]+$')">Use</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <h3>You May Also Like</h3>
+        <ul>
+          <li><a href="json-to-typescript.html">JSON to TypeScript</a></li>
+          <li><a href="url-encode.html">URL Encode</a></li>
+          <li><a href="timestamp-converter.html">Timestamp Converter</a></li>
+          <li><a href="markdown-table.html">Markdown Table Generator</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Free Online Tools.</p>
+    <p style="margin-top: 10px;">
+      <a href="../../tool-privacy.html" style="color: var(--text-secondary); margin: 0 10px;">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    function testRegex() {
+      const pattern = document.getElementById('regexPattern').value;
+      const testString = document.getElementById('testString').value;
+      
+      if (!pattern) {
+        showError('Please enter a regex pattern', 'result');
+        return;
+      }
+
+      if (!testString) {
+        showError('Please enter text to test', 'result');
+        return;
+      }
+
+      try {
+        const regex = new RegExp(pattern, 'gm');
+        const matches = testString.match(regex);
+        
+        if (matches && matches.length > 0) {
+          const result = `✓ Match found!\n\nMatches (${matches.length}):\n${matches.map((m, i) => `${i + 1}. ${m}`).join('\n')}`;
+          document.getElementById('result').value = result;
+          showNotification(`Found ${matches.length} match(es)!`);
+        } else {
+          document.getElementById('result').value = '✗ No matches found';
+          showNotification('No matches found');
+        }
+      } catch (e) {
+        showError('Invalid regex pattern: ' + e.message, 'result');
+      }
+    }
+
+    function usePattern(pattern) {
+      document.getElementById('regexPattern').value = pattern;
+      showNotification('Pattern loaded!');
+    }
+
+    function clearAll() {
+      document.getElementById('regexPattern').value = '';
+      document.getElementById('testString').value = '';
+      document.getElementById('result').value = '';
+    }
+
+    function copyOutput() {
+      const output = document.getElementById('result');
+      output.select();
+      document.execCommand('copy');
+      showNotification('Copied to clipboard!');
+    }
+  </script>
+</body>
+</html>
