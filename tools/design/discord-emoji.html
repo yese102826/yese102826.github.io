@@ -131,7 +131,7 @@
           
           const preview = document.getElementById('preview');
           preview.innerHTML = `
-            <img src="${canvas.toDataURL('image/png')}" style="max-width: 128px; border-radius: 8px;">
+            <img src="${canvas.toDataURL('image/png')}" alt="Discord Emoji preview image" style="max-width: 128px; border-radius: 8px;">
             <p style="margin-top: 12px; color: var(--text-secondary);">Size: ${size}x${size}px</p>
             <p style="color: var(--text-secondary);">Right-click and "Save Image As" to download</p>
           `;
